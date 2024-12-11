@@ -63,7 +63,7 @@ module MissionControl
       end
 
       config.after_initialize do |app|
-        unless app.config.eager_load
+        if app.config.eager_load
           # When loading classes lazily (development), we want to make sure
           # the base host +ApplicationController+ class is loaded when loading the
           # Engine's +ApplicationController+, or it will fail to load the class.
